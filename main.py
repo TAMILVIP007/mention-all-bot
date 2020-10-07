@@ -46,6 +46,7 @@ def chunks(l, n):
 def all_command(update, context):
     chat_id = update.effective_chat.id
     user_list = db.get_users_from_chat(chat_id)
+    logging.info(f'all call, {len(user_list)} users')
     if not user_list:
         message = 'There are no users. To opt in type /in command'
         context.bot.send_message(chat_id=chat_id, text=message)
